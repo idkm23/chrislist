@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:id="@+id/subcategory_browser_linear_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeatfade"
+        android:padding="20sp">
+        <TextView
+            android:id="@+id/subcategory_browser_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SubcategorySample"
+            android:textSize="33sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textAlignment="center" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:id="@+id/category_menu_linear_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/repeatfade"
+        android:padding="20sp">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chrislist_logo"
+            android:layout_marginBottom="20sp" />
+
+    </LinearLayout>
+</ScrollView>
