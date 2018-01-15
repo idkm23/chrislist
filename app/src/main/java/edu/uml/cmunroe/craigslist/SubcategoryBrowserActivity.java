@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class SubcategoryBrowserActivity extends AppCompatActivity {
 
+    SubcategoryBrowserView subcategoryBrowserView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,8 @@ public class SubcategoryBrowserActivity extends AppCompatActivity {
         header.setText(subcategory);
 
         LinearLayout ll = findViewById(R.id.subcategory_browser_linear_layout);
-        ll.addView(new SubcategoryBrowserView(getApplicationContext(), subcategory));
+        subcategoryBrowserView = new SubcategoryBrowserView(getApplicationContext(), subcategory);
+        ll.addView(subcategoryBrowserView);
 
         Button post_button = findViewById(R.id.post_button);
         post_button.setOnClickListener(new View.OnClickListener() {
@@ -32,5 +35,20 @@ public class SubcategoryBrowserActivity extends AppCompatActivity {
                 getApplicationContext().startActivity(i);
             }
         });
+    }
+
+    private boolean paused_previously = false;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (paused_previously) {
+            recreate();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        paused_previously = true;
     }
 }

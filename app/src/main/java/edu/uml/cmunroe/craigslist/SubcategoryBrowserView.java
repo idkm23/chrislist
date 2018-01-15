@@ -2,7 +2,6 @@ package edu.uml.cmunroe.craigslist;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -10,10 +9,11 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class SubcategoryBrowserView extends LinearLayout {
     private FirebaseDatabase database;
@@ -25,19 +25,21 @@ public class SubcategoryBrowserView extends LinearLayout {
         setOrientation(LinearLayout.VERTICAL);
         this.subcategory = subcategory;
         database = FirebaseDatabase.getInstance();
-
-        // load dynamic postings
         load_page(0);
     }
 
     public void load_page(int page) {
         Query query =
-                database.getReference("posts").child(subcategory).orderByKey().limitToFirst(6);
+                database.getReference("posts").child(subcategory).orderByKey().limitToLast(6);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
+                ArrayList<DataSnapshot> postings = new ArrayList();
                 for (final DataSnapshot posting : dataSnapshot.getChildren()) {
+                    postings.add(0, posting);
+                }
+                for (final DataSnapshot posting: postings) {
                     Log.i("chrislist", posting.toString());
 
                     TextView text_view = new TextView(getContext());
@@ -82,5 +84,9 @@ public class SubcategoryBrowserView extends LinearLayout {
                 Log.e("chrislist", "database cancelled");
             }
         });
+    }
+
+    public void reset() {
+
     }
 }
