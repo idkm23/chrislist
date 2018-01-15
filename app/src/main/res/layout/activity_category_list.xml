@@ -15,6 +15,5 @@
             android:layout_height="wrap_content"
             android:src="@drawable/chrislist_logo"
             android:layout_marginBottom="20sp" />
-
     </LinearLayout>
 </ScrollView>

@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubcategoryBrowserActivity" />
+        <activity android:name=".PostActivity" />
+        <activity android:name=".ViewPostActivity" />
     </application>
 
 </manifest>

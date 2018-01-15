@@ -20,7 +20,7 @@ public class CategoryButtonView extends LinearLayout {
         category_btn.setLayoutParams(
                 new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         category_btn.setTextSize(24); //sp
-        category_btn.setTextColor(getResources().getColor(R.color.colorPrimary));
+        category_btn.setTextColor(getResources().getColor(R.color.colorTitle));
         category_btn.setBackground(getResources().getDrawable(R.drawable.border));
         category_btn.setTypeface(null, Typeface.BOLD);
         category_btn.setPaintFlags(category_btn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
